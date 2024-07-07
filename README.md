@@ -23,7 +23,7 @@ A user can be created with the button on the main page, providing a PIN number a
 - Node.js
 
 ## Deployment
-Link to the repo - [Robotics Check-In](https://github.com/ThStranick15/robotics_check_in)
+Link to the repo - [Robotics Check-In](https://github.com/ThStranick15/robotics_check_in) 
 Deployed app - [Heroku](https://robotics-check-in-3b660a816f91.herokuapp.com/)
 
 ## Contributors
