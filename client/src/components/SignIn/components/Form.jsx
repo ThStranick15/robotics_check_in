@@ -115,7 +115,7 @@ export default function Form(){
     }
 
     function list(){ //lists out names of people who have signed in
-        const names = signedInUsers.map((e)=><p className="border p-1 my-1 bg-violet-500 rounded text-center">{e.pin} - {e.name} - {(new Date(e.timeIn)).toLocaleTimeString('en-US')}</p>)
+        const names = signedInUsers.map((e)=><p className="border p-1 my-1 bg-blue-500 rounded text-center">{e.pin} - {e.name} - {(new Date(e.timeIn)).toLocaleTimeString('en-US')}</p>)
         console.log(names)
         return(names)
     }
@@ -135,15 +135,15 @@ export default function Form(){
 
     return(
         <section className="flex flex-col w-3/4 md:w-1/4">
-        <div className="flex flex-col bg-green-700 m-3 rounded shadow-lg">
+        <div className="flex flex-col bg-red-700 m-3 rounded shadow-lg">
                 {!newUserShow && (<form className="flex flex-col m-3" onSubmit={handleSignIn}>
                     <input className="border p-1 mb-1" type="text" name="PIN" placeholder="PIN" value={pin} onChange={(e) => setPin(e.target.value)} required/>
                     {showPinErr && (<p className="border bg-red-500 text-white px-2 py-1 w-fit rounded">Invalid PIN</p>)}
                     {exists && (<input className="border p-1 my-1" type="text" name="workSubject" placeholder="What did you work on?" value={text} onChange={(e) => setText(e.target.value)} required/>)}
-                    <button className="border p-1 my-1 text-white bg-green-600 hover:bg-green-500 rounded" type="submit">{exists ? "Check Out" : "Check In"}</button>
+                    <button className="border p-1 my-1 text-white bg-red-600 hover:bg-red-500 rounded" type="submit">{exists ? "Check Out" : "Check In"}</button>
                 </form>)}
-                {parseInt(pin) === 9999 ? <NavLink to={'/admin'} className="border p-1 mx-3 text-white bg-violet-600 hover:bg-violet-500 rounded text-center">Go to Admin</NavLink>: ""}
-                <button onClick={handleNewUser} className="border p-1 m-3 text-white bg-green-600 hover:bg-green-500 rounded">{newUserShow ? "Back to Login" :"No ID? Create new user here."}</button>
+                {parseInt(pin) === 9999 ? <NavLink to={'/admin'} className="border p-1 mx-3 text-white bg-blue-600 hover:bg-blue-500 rounded text-center">Go to Admin</NavLink>: ""}
+                <button onClick={handleNewUser} className="border p-1 m-3 text-white bg-red-600 hover:bg-red-500 rounded">{newUserShow ? "Back to Login" :"No ID? Create new user here."}</button>
                 {newUserShow && (
                 <div>
                 <form className="flex flex-col m-3" onSubmit={handleNewUserForm}>
@@ -151,14 +151,14 @@ export default function Form(){
                     {showPinLengthErr && (<p className="border bg-red-500 text-white px-2 py-1 w-fit rounded">PIN must be 4 numbers in length</p>)}
                     {showPinExistsErr && (<p className="border bg-red-500 text-white px-2 py-1 w-fit rounded">PIN already exists</p>)}
                     <input className="border p-1 my-1" type="text" name="name" placeholder="What is your name?" value={name} onChange={(e) => setName(e.target.value)} required/>
-                    <button className="border p-1 my-1 text-white bg-green-600 hover:bg-green-500 rounded" type="submit">Create!</button>
+                    <button className="border p-1 my-1 text-white bg-red-600 hover:bg-red-500 rounded" type="submit">Create!</button>
                 </form>
                 </div>)} 
         </div>
-        <div className="bg-violet-800 m-3 p-5 rounded text-white shadow-lg">
-            {showCheckedIn ? (<p className="border p-1 my-1 bg-violet-700 text-center rounded">Last Checked Out/In: {recentSignIn}</p>) : (<p>Loading</p>)}
+        <div className="bg-blue-800 m-3 p-5 rounded text-white shadow-lg">
+            {showCheckedIn ? (<p className="border p-1 my-1 bg-blue-700 text-center rounded">Last Checked Out/In: {recentSignIn}</p>) : (<p>Loading</p>)}
             
-            {showCheckedIn ?  (<div className="border p-1 my-2 bg-violet-600 rounded"><p className="border p-1 my-1 bg-violet-700 underline text-center rounded">Signed In Users</p>{list()}</div>) : (<p>Loading</p>)}
+            {showCheckedIn ?  (<div className="border p-1 my-2 bg-blue-600 rounded"><p className="border p-1 my-1 bg-blue-700 underline text-center rounded">Signed In Users</p>{list()}</div>) : (<p>Loading</p>)}
         </div>
         </section>
         

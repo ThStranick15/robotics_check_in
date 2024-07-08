@@ -72,27 +72,27 @@ export default function Admin() {
 
     return(
         <section className="flex flex-col flex-1 items-center w-1/2 m-auto">
-            <h1 className="text-xl m-2 p-2 bg-violet-600 text-white rounded w-full">Admin Page</h1>
+            <h1 className="text-xl mt-5 p-2 bg-blue-600 text-white rounded w-full text-center">Admin Page</h1>
             
-            <div className="flex flex-row bg-green-700 m-3 rounded p-3 w-full">
+            <div className="flex flex-row bg-red-700 m-3 rounded p-3 w-full">
                 <form className="flex flex-row items-center" onSubmit={handleSearch}>
                     <input className="border mx-2 rounded p-2" type="text" name="pin" placeholder="Enter Pin" value={pin} onChange={(e) => setPin(e.target.value)}/>
                     {showPinErr && (<p className="border bg-red-500 text-white px-2 py-1 w-fit rounded">Invalid PIN</p>)}
-                    <button className="border p-1 my-1 mx-2 text-white bg-green-600 hover:bg-green-500 rounded" type="submit">Search</button>
+                    <button className="border p-1 my-1 mx-2 text-white bg-red-600 hover:bg-red-500 rounded" type="submit">Search</button>
                 </form>
-                <button className="border p-1 my-1 mx-2 text-white bg-green-600 hover:bg-green-500 rounded" onClick={handleSearchAll}>List All Students</button>
+                <button className="border p-1 my-1 mx-2 text-white bg-red-600 hover:bg-red-500 rounded" onClick={handleSearchAll}>List All Students</button>
                 <XLSXExport  users={alldataxlsx?.getAllUsers}/>
             </div>
             {(userloading || !userdata || view !== "one") ? '' : 
             <div className="flex flex-col w-3/4">
-                <div className="flex flex- bg-violet-700 text-md text-white rounded">
-                    <p className="bg-violet-500 m-2 p-2 rounded">Pin: {userdata?.getUser.pin}</p> 
-                    <p className="bg-violet-500 m-2 p-2 rounded">Name: {userdata?.getUser.name}</p>
-                    <p className="bg-violet-500 m-2 p-2 rounded">{totalHours(userdata?.getUser).days} Days {totalHours(userdata?.getUser).hours} Hours  {totalHours(userdata?.getUser).minutes} Minutes {totalHours(userdata?.getUser).seconds} Seconds</p>
+                <div className="flex flex- bg-blue-700 text-md text-white rounded">
+                    <p className="bg-blue-500 m-2 p-2 rounded">Pin: {userdata?.getUser.pin}</p> 
+                    <p className="bg-blue-500 m-2 p-2 rounded">Name: {userdata?.getUser.name}</p>
+                    <p className="bg-blue-500 m-2 p-2 rounded">{totalHours(userdata?.getUser).days} Days {totalHours(userdata?.getUser).hours} Hours  {totalHours(userdata?.getUser).minutes} Minutes {totalHours(userdata?.getUser).seconds} Seconds</p>
                 </div> 
-                <div className="flex flex-col bg-violet-700 my-2 p-2 text-md text-white rounded">
+                <div className="flex flex-col bg-blue-700 my-2 p-2 text-md text-white rounded">
                      {userdata?.getUser.logs.map(e => {return (
-                        <div className="bg-violet-500 m-2 p-2 rounded">
+                        <div className="bg-blue-500 m-2 p-2 rounded">
                             <p>Date: {e.date}</p>
                             <p>Worked On: {e.description}</p> 
                             <p>Hours: {e.hours}</p>
@@ -102,9 +102,9 @@ export default function Admin() {
             </div>
             }
             {(allloading || !alldata || view !== "all") ? '':
-            <div className="flex flex-col bg-violet-700 text-md text-white rounded w-3/4">
+            <div className="flex flex-col bg-blue-700 text-md text-white rounded w-3/4">
                 {alldata?.getAllUsers.map(e => {return(
-                    <div className="flex bg-violet-500 m-2 p-2 rounded justify-between">
+                    <div className="flex bg-blue-500 m-2 p-2 rounded justify-between">
                         <p className="mx-2">Name: {e.name}</p>
                         <p className="mx-2">Pin: {e.pin}</p>
                         <p className="mx-2">Total: {totalHours(e).days} Days {totalHours(e).hours} Hours  {totalHours(e).minutes} Minutes {totalHours(e).seconds} Seconds</p>

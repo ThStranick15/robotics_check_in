@@ -23,6 +23,6 @@ export default function XLSXExport(props){
     }
 
     return(
-        <button className="border p-1 my-1 mx-2 text-white bg-green-600 hover:bg-green-500 rounded" onClick={exportXLS}>Export XLSX</button>
+        <button className="border p-1 my-1 mx-2 text-white bg-red-600 hover:bg-red-500 rounded" onClick={exportXLS}>Export XLSX</button>
     )
 }
